@@ -4,38 +4,129 @@ File: styles.css
 Date: june 18th 2026
 styles.css for assignment 3 part 2
 */
-/* General setup */
 
-* {
-  box-sizing: border-box;
+/* Fonts */
+html {
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: 16px;
 }
 
+h1, h2, h3, nav a {
+  font-family: "Arial Black", "Impact", "Helvetica Neue", sans-serif;
+}
+
+/* Text Styling */
 body {
-  margin: 0 auto;
-  padding: 0 20px;
-  min-width: 980px;
-  max-width: 1400px;
+  line-height: 1.6;
 }
 
-/* Layout */
-
-main {
-  display: grid;
-  grid-template-columns: 5fr 2fr 2fr;
-  gap: 40px;
-  padding: 20px 0;
-}
-
-/* header and footer */
-
-header {
-  border-bottom: 5px solid #aa6666;
-}
-
-footer {
-  border-top: 5px solid #aa6666;
-}
-
-footer p {
+h1 {
+  font-size: 3rem;
   text-align: center;
+  letter-spacing: 2px;
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0; /* Remove bottom margin */
+  letter-spacing: 1px;
+}
+
+p, li {
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+
+/* Indent first paragraph after section headings */
+section h2 + p {
+  text-indent: 2rem;
+}
+
+/*Links */
+a {
+  color: #aa6666;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #774444;
+}
+
+a:hover,
+a:focus {
+  color: #cc8888;
+  text-decoration: none; /* Hide underline on hover */
+}
+
+a:focus {
+  outline: none; /* Remove default focus outline */
+}
+
+/* Append external link icon */
+a[href^="http://"],
+a[href^="https://"] {
+  background-image: url('external-link-52.png');
+  background-repeat: no-repeat;
+  background-size: 12px 12px;
+  background-position: right center;
+  padding-right: 16px; /* Room for icon */
+}
+
+/*Lists */
+ul, ol {
+  line-height: 1.6;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+section ul {
+  list-style-type: square;
+}
+
+aside ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+aside ul li {
+  margin-bottom: 8px;
+  border-bottom: 1px dashed #e0e0e0;
+  padding-bottom: 4px;
+}
+
+/*Navigation Menu */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav li {
+  margin-bottom: 10px;
+}
+
+nav a {
+  display: block; /* Full-width hit area */
+  width: 100%;
+  padding: 12px 0;
+  background-color: #aa6666;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  transition: background-color 0.2s ease;
+}
+
+nav a:visited {
+  color: white;
+}
+
+nav a:hover,
+nav a:focus {
+  background-color: #774444;
+  color: white;
+  text-decoration: none;
 }
