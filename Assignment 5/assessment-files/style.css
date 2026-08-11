@@ -11,20 +11,34 @@ html {
 }
 
 body {
-  width: 90%;
-  max-width: 1200px;
-  min-width: 320px;
+  width: 80%;
+  min-width: 1024px;
   margin: 0 auto;
+}
+
+/* Screen reader only utility class */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* || typography */
 
 h1, h2, h3 {
-  font-family: 'Sonsie One', cursive, sans-serif;
+  font-family: 'Sonsie One', cursive;
   color: #2a2a2a;
+  margin: 0;
+  padding: 0;
 }
 
-p, input, li, table, label {
+p, input, li, table, label, button {
   font-family: 'Open Sans Condensed', sans-serif;
   color: #2a2a2a;
 }
@@ -41,8 +55,13 @@ h2 {
   text-align: center;
 }
 
+article h2, .secondary h2 {
+  text-align: left;
+}
+
 h3 {
   font-size: 2.2rem;
+  margin-top: 1.5rem;
 }
 
 p, li, table {
@@ -50,19 +69,28 @@ p, li, table {
   line-height: 1.5;
 }
 
-/* || Focus States for Accessibility */
+.byline {
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+}
+
+/* || Focus States for Keyboard Accessibility */
 
 a:focus,
 input:focus,
-button:focus,
-.show-hide:focus {
+button:focus {
   outline: 3px solid #005a9c;
   outline-offset: 2px;
 }
 
 /* || header layout */
 
-div.nav, article, footer, .secondary {
+.header {
+  background-color: #f0f0f5;
+  padding: 20px;
+}
+
+.nav, article, footer, .secondary {
   background-color: #ffffff;
 }
 
@@ -74,44 +102,38 @@ article {
   margin-right: 10px;
 }
 
-div.nav {
-  height: auto;
-  min-height: 50px;
+.nav {
+  height: 50px;
   background-color: #f0f0f5;
-  border: 1px solid #ccc;
   display: flex;
-  padding: 10px 0;
+  padding: 1% 0;
   margin-bottom: 10px;
 }
 
-div.nav ul {
+.nav ul {
   padding: 0;
+  margin: 0;
   list-style-type: none;
   flex: 2;
   display: flex;
+  align-items: center;
 }
 
-div.nav li {
+.nav li {
   display: inline;
   text-align: center;
   flex: 1;
 }
 
-div.nav a {
+.nav a {
   display: inline-block;
   font-size: 2rem;
   text-transform: uppercase;
   text-decoration: none;
-  color: #111111;
-  font-weight: bold;
+  color: black;
 }
 
-div.nav a:hover,
-div.nav a:focus {
-  text-decoration: underline;
-}
-
-div.nav .search {
+.nav .search {
   flex: 1;
   display: flex;
   align-items: center;
@@ -131,9 +153,9 @@ div.nav .search {
 .search input[type="submit"] {
   flex: 1;
   margin-left: 1rem;
-  background: #222222;
+  background: #333;
   border: 0;
-  color: #ffffff;
+  color: white;
   cursor: pointer;
 }
 
@@ -162,6 +184,13 @@ table {
   width: 100%;
   background-color: #dde;
   border-collapse: collapse;
+  margin: 1.5rem 0;
+}
+
+caption {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
 }
 
 th, td {
@@ -173,46 +202,54 @@ td {
 }
 
 th[scope="col"] {
-  border-bottom: 2px solid #222222;
+  border-bottom: 1px solid black;
+  text-align: center;
+}
+
+th[scope="row"] {
+  text-align: center;
 }
 
 tbody tr:nth-child(odd) {
-  background-color: #e8f0fe;
+  background-color: #def;
 }
 
 /* styling content images and audio */
 
 img, audio {
   display: block;
-  margin: 0 auto;
+  margin: 1.5rem auto;
   max-width: 100%;
 }
 
 audio {
-  width: 100%;
-  max-width: 500px;
+  width: 500px;
 }
 
 /* Comments styling */
 
 .comments {
-  background-color: #e8f0fe;
+  background-color: #def;
   padding: 10px;
-  margin-top: 20px;
+  margin-top: 2rem;
 }
 
 .show-hide {
   cursor: pointer;
   text-align: center;
   width: 150px;
-  background: #222222;
+  background: #333;
   border: 0;
-  color: #ffffff;
-  padding: 5px 10px;
+  color: white;
+  font-size: 1.6rem;
+  line-height: 32px;
+  display: block;
+  margin: 0 auto;
 }
 
 .comments h2 {
   font-size: 2rem;
+  text-align: left;
 }
 
 .comment-form {
@@ -228,23 +265,20 @@ audio {
   align-self: center;
   flex: 2;
   text-align: right;
+  font-size: 1.6rem;
 }
 
 .comment-form input {
   margin-left: 1rem;
   flex: 6;
-  border: 1px solid #767676;
-}
-
-.comment-form input, .comment-form label, .show-hide {
   font-size: 1.6rem;
   line-height: 32px;
 }
 
 .comment-form input[type="submit"] {
-  background: #222222;
+  background: #333;
   border: 0;
-  color: #ffffff;
+  color: white;
   width: 30%;
   display: block;
   margin: 0 auto;
@@ -259,8 +293,6 @@ audio {
 .comment-container li {
   list-style-type: none;
   display: flex;
-  border-bottom: 1px solid #ccc;
-  padding: 5px 0;
 }
 
 .comment-container li p:nth-child(1) {
